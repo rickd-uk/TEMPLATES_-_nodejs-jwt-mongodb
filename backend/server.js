@@ -12,7 +12,7 @@ app.use(cors(corsOptions))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-const db = require('./backend/models')
+const db = require('./models')
 const Role = db.role
 
 const HOST = process.env.DB_HOST
@@ -77,8 +77,8 @@ function initial() {
 // })
 
 // ROUTES
-require('./backend/routes/auth.routes')(app)
-require('./backend/routes/user.routes')(app)
+require('./routes/auth.routes')(app)
+require('./routes/user.routes')(app)
 //require('./routes/user.routes')
 
 const PORT = process.env.PORT || 4000
